@@ -2,7 +2,8 @@
 
 This project is a simulation of the Round Robin CPU scheduling algorithm coded in c++. 
 
-For more information on the Round Robin CPU scheduling algorithm see [Round Robin scheduling Algorithm Description.docx](Round Robin scheduling Algorithm Description.docx)
+For more information on the Round Robin CPU scheduling algorithm see [Round Robin scheduling Algorithm Description.md](Round Robin scheduling Algorithm Description.md)
+
 
 ## Install and Run
 ### Github Extension for Visual Studio
@@ -14,19 +15,28 @@ Clone or Download all project files to a local directory. Open the Solution in V
 ### g++ compiler
 Clone or Download all project files to a local directory. Compile reference cpp files using "g++ -c CPU.cpp process.cpp". Compile the whole project using "g++ main.cpp CPU.o process.o". Run the compiled executeable, "./a.out".
 
+
 ## Program
 ### Input
 job.txt is the input file. Each line contains the number of the job, requesting time (millisecond since computer started) and duration (millisecond). For example:
+
 1, 20, 50
+
 means a job for CPU with number 1 is requested to run at 20ms since CPU started, and the duration of the job is 50ms.
 
 ### Output
 Schedule job order similar to the following format:
+
 $>Job 1, scheduled for 4ms
+
 $>Job 2, scheduled for 3ms
+
 $>Job 1, scheduled for 5ms
+
 $>Job 3, scheduled for 5ms
+
 $>Job 2, scheduled for 3ms, completed
+
 $>job 1, scheduled for 2ms, completed
 
 Because round robin is deterministic, you should see the same job scheduling result every time you run your code.
@@ -34,7 +44,8 @@ Because round robin is deterministic, you should see the same job scheduling res
 ##Approach:
 Global variables cpuSpeed and quantum are defined as milliseconds of how often CPU checks for new processes and milliseconds time each proc is allowed to run per context switch, respectively.
 
-A process struct is defined as having an id, arrivalTime, cpuBurst, and runTime. CPU namespace contains a queue of processes to run a sysTime variable and all CPU methods such as dispatchProcess, runProcess, and scheduleProcess. 
+A process struct is defined as having an id, arrivalTime, cpuBurst, and runTime. The CPU namespace contains a queue of processes and all CPU methods such as dispatchProcess, runProcess, and scheduleProcess. 
+
 1. While there are still unread lines in the input file and queued processes, call on CPU::scheduleProcess() to schedule arrived processes. 
 2. If there are no more processes arrived, call CPU::runProcess() to "run" the next scheduled process. 
 3. Increment sysTime by the set quantum as processes are ran. 
