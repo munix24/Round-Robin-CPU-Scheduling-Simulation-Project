@@ -13,8 +13,10 @@ int main()
 	ifstream inf("job.txt");
 	if(inf.is_open()){
 		inf >>incProc.id>>c>>incProc.arrivalTime>>c>>incProc.cpuBurst;		//pull next proc from file
-		if(!inf.eof() && inf.fail())
-			cout<<"check input values for errors"<<endl;
+		if(!inf.eof() && inf.fail()) {
+			cout << "check input values for errors" << endl;
+			exit(EXIT_FAILURE);
+		}
 	} else
 		cout<<"Couldn't open Dictionary file"<<endl;						//handle missing file
 	
@@ -25,10 +27,12 @@ int main()
 			CPU::scheduleProcess(incProc);
 			incProc.id=-1;													//no new procs flag
 			inf >>incProc.id>>c>>incProc.arrivalTime>>c>>incProc.cpuBurst;	//pull next proc from file
-			if(!inf.eof() && inf.fail())
-				cout<<"check input values for errors"<<endl;
+			if (!inf.eof() && inf.fail()) {
+				cout << "check input values for errors" << endl;
+				exit(EXIT_FAILURE);
+			}
 		}
-		CPU::runProcess();														//how long cpu runs
+		CPU::runProcess();													//how long cpu runs
 	}
 	cin.get();																//pause - wait for user action
 }
