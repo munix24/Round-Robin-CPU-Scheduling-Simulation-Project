@@ -5,6 +5,7 @@ This project is a simulation of the Round Robin CPU scheduling algorithm coded i
 For more information on the Round Robin CPU scheduling algorithm see [Round Robin scheduling Algorithm Description.md](Round Robin scheduling Algorithm Description.md)
 
 
+
 ## Install and Run
 ### Github Extension for Visual Studio
 In the "Team Explorer" window of Visual Studio, clone a copy of this repository to your local drive using the URL, https://github.com/munix24/Round_Robin_CPU_scheduling_Simulation.git. Open, build, and run the solution.
@@ -16,7 +17,8 @@ Clone or Download all project files to a local directory. Open the Solution in V
 Clone or Download all project files to a local directory. Compile reference cpp files using "g++ -c CPU.cpp process.cpp". Compile the whole project using "g++ main.cpp CPU.o process.o". Run the compiled executeable, "./a.out".
 
 
-## Program
+
+## Input/Output
 ### Input
 job.txt is the input file. Each line contains the number of the job, requesting time (millisecond since computer started) and duration (millisecond). For example:
 
