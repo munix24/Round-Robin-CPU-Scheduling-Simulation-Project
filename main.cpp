@@ -34,5 +34,5 @@ int main()
 		}
 		CPU::runProcess();													//how long cpu runs
 	}
-	cin.get();																//pause - wait for user action
+	system("PAUSE");																//pause - wait for user action
 }
