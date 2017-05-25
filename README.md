@@ -43,7 +43,7 @@ $>job 1, scheduled for 2ms, completed
 
 Because round robin is deterministic, you should see the same job scheduling result every time you run your code.
 
-##Approach:
+## Approach:
 Global variables cpuSpeed and quantum are defined as milliseconds of how often CPU checks for new processes and milliseconds time each proc is allowed to run per context switch, respectively.
 
 A process struct is defined as having an id, arrivalTime, cpuBurst, and runTime. The CPU namespace contains a queue of processes and all CPU methods such as dispatchProcess, runProcess, and scheduleProcess. 
